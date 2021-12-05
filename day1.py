@@ -1,3 +1,7 @@
+from typing import Counter
+
+test = [199,200,208,210,200,207,240,269,260,263]
+
 from data import measurement
 '''
 As the submarine drops below the surface of the ocean, it automatically performs a sonar sweep of the nearby sea floor. On a small screen, the sonar sweep report (your puzzle input) appears: each line is a measurement of the sea floor depth as the sweep looks further and further away from the submarine.
@@ -20,7 +24,6 @@ In this example, there are 7 measurements that are larger than the previous meas
 
 How many measurements are larger than the previous measurement?
 '''
-
 def depth_increase_count(measurement):
     counter = 0
     for i in range(1,len(measurement)):
@@ -29,6 +32,15 @@ def depth_increase_count(measurement):
     print(counter)
 
 depth_increase_count(measurement)
+
+def sliding_increase_count(measurement):
+    counter = 0
+    for i in range(2,len(measurement)):
+        if int(measurement[i-3]) < int(measurement[i]):
+         counter += 1
+    print(counter)
+
+sliding_increase_count(measurement)
 
 
 
